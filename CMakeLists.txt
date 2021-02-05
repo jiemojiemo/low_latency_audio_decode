@@ -5,7 +5,24 @@ project(low_latency_audio_decode)
 add_subdirectory(portaudio EXCLUDE_FROM_ALL)
 add_subdirectory(dr_libs)
 
+add_library(Deps INTERFACE)
+target_link_libraries(Deps INTERFACE portaudio dr_libs)
+target_compile_features(Deps INTERFACE cxx_std_14)
 
 add_executable(0_playback 0_playback.cpp)
-target_link_libraries(0_playback portaudio dr_libs)
-target_compile_features(0_playback PRIVATE cxx_std_14)
+target_link_libraries(0_playback Deps)
+
+add_executable(1_playback_underrun 1_playback_underrun.cpp)
+target_link_libraries(1_playback_underrun Deps)
+
+add_executable(2_playback_from_decode_file 2_playback_from_decode_file.cpp)
+target_link_libraries(2_playback_from_decode_file Deps)
+
+add_executable(2_playback_from_decode_file_wav 2_playback_from_decode_file_wav.cpp)
+target_link_libraries(2_playback_from_decode_file_wav Deps)
+
+add_executable(3_playback_from_memory 3_playback_from_memory.cpp)
+target_link_libraries(3_playback_from_memory Deps)
+
+add_executable(4_playback_mmap 4_playback_mmap.cpp)
+target_link_libraries(4_playback_mmap Deps)
