@@ -11,7 +11,7 @@
 using namespace std;
 using namespace std::chrono_literals;
 
-#define NUM_SECONDS   (10)
+#define NUM_SECONDS   (5)
 #define SAMPLE_RATE   (44100)
 #define FRAMES_PER_BUFFER  (64)
 
@@ -54,7 +54,7 @@ static int patestCallback( const void *inputBuffer, void *outputBuffer,
 int main(int argc, char* argv[])
 {
     if(argc < 2){
-        printf("Usage: main input_audio.mp3\n");
+        printf("Usage: main input_audio.wav\n");
         return -1;
     }
 

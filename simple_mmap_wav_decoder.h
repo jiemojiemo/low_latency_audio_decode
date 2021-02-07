@@ -38,6 +38,7 @@ public:
             exit(EXIT_FAILURE);
         }
 
+        // only support stereo float 32 wav format
         if(wav.channels != 2){
             exit(EXIT_FAILURE);
         }
