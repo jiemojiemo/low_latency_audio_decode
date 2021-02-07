@@ -4,6 +4,7 @@ project(low_latency_audio_decode)
 
 add_subdirectory(portaudio EXCLUDE_FROM_ALL)
 add_subdirectory(dr_libs)
+add_subdirectory(buffering_file_source)
 
 add_library(Deps INTERFACE)
 target_link_libraries(Deps INTERFACE portaudio dr_libs)
@@ -26,3 +27,6 @@ target_link_libraries(3_playback_from_memory Deps)
 
 add_executable(4_playback_mmap 4_playback_mmap.cpp)
 target_link_libraries(4_playback_mmap Deps)
+
+add_executable(5_playback_buffering 5_playback_buffering.cpp)
+target_link_libraries(5_playback_buffering Deps buffering_file_source)
