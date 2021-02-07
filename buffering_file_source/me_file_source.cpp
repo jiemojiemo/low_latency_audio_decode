@@ -10,6 +10,7 @@
 #include "me_time_slice_thread.h"
 
 #include "me_wav_decoder.h"
+#include "me_mp3_decoder.h"
 
 using namespace std;
 
@@ -116,7 +117,7 @@ std::unique_ptr<FileSource> FileSource::create (const std::string & path)
     if (ext == "wav") {
         file_source =  make_unique<FileSourceImpl>(make_unique<WavDecoder>(), path);
     } else if (ext == "mp3") {
-//        file_source =  make_unique<FileSourceImpl>(make_unique<MP3Decoder>(), path);
+        file_source =  make_unique<FileSourceImpl>(make_unique<MP3Decoder>(), path);
     } else{
         return nullptr;
     }

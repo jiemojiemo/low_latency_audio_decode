@@ -57,12 +57,10 @@ static int patestCallback( const void *inputBuffer, void *outputBuffer,
     return paContinue;
 }
 
-
-
 int main(int argc, char* argv[])
 {
     if(argc < 2){
-        printf("Usage: main input_audio.mp3\n");
+        printf("Usage: main input_audio_file\n");
         return -1;
     }
 
